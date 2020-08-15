@@ -8,6 +8,7 @@ featuredimage: /img/blob.svg
 tags:
   - no
 ---
+
 gfytgyihjlnkml
 
 ![This is me](/img/t0d7y8mj9-u1nsla821-6c30f626b5ee-512.png "This is ME!")
@@ -15,17 +16,17 @@ gfytgyihjlnkml
 Can you see me?
 
 <div>
-
-<img id="yo" src="/img/t0d7y8mj9-u1nsla821-6c30f626b5ee-512.png" style="cursor: pointer;" width="100%"/>
-
+  <img id="yo" style="cursor: pointer;" width="100%"/>
 </div>
 
 <script>
-document
-  .getElementById("yo")
-  .addEventListener('click', (event) => {
+  const image = document.getElementById("yo");
+
+  image.src = "/img/t0d7y8mj9-u1nsla821-6c30f626b5ee-512.png";
+  
+  image.addEventListener('click', (event) => {
     console.log("Don't touch my face");
   });
 
-console.log({ image });
+  console.log({ image });
 </script>
