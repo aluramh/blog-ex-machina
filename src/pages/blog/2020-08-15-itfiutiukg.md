@@ -1,9 +1,9 @@
 ---
 templateKey: blog-post
-title: itfiutiukg
+title: This is my latest blogpost
 date: 2020-08-15T20:45:06.292Z
-description: cjcgjvhkbjlkl;
-featuredpost: true
+description: Why does it not appear?
+featuredpost: false
 featuredimage: /img/blob.svg
 tags:
   - no
