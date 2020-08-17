@@ -1,7 +1,11 @@
 import React, { FC } from "react";
+import { PreviewTemplateComponentProps } from "netlify-cms-core";
 import { IndexPageTemplate } from "../../templates/index-page";
 
-const IndexPagePreview = ({ entry, getAsset }) => {
+const IndexPagePreview: FC<PreviewTemplateComponentProps> = ({
+  entry,
+  getAsset,
+}) => {
   const data = entry.getIn(["data"]).toJS();
 
   if (data) {
