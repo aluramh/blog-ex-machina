@@ -46,11 +46,11 @@ const ProductPagePreview = ({ entry, getAsset }) => {
   )
 }
 
-ProductPagePreview.propTypes = {
-  entry: PropTypes.shape({
-    getIn: PropTypes.func,
-  }),
-  getAsset: PropTypes.func,
-}
+// ProductPagePreview.propTypes = {
+//   entry: PropTypes.shape({
+//     getIn: PropTypes.func,
+//   }),
+//   getAsset: PropTypes.func,
+// }
 
 export default ProductPagePreview
