@@ -1,7 +1,16 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React, { FC } from "react";
+import PropTypes from "prop-types";
 
-const Pricing = ({ data }) => (
+interface Props {
+  data: {
+    plan: string;
+    price: string | number;
+    description: string;
+    items: any[];
+  }[];
+}
+
+const Pricing: FC<Props> = ({ data }) => (
   <div className="columns">
     {data.map((price) => (
       <div key={price.plan} className="column">
@@ -24,7 +33,7 @@ const Pricing = ({ data }) => (
       </div>
     ))}
   </div>
-)
+);
 
 Pricing.propTypes = {
   data: PropTypes.arrayOf(
@@ -35,6 +44,6 @@ Pricing.propTypes = {
       items: PropTypes.array,
     })
   ),
-}
+};
 
-export default Pricing
+export default Pricing;
