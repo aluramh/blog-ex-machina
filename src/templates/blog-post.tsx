@@ -79,6 +79,7 @@ const BlogPost: FC<BlogPostProps> = ({ data, pageContext, location }) => {
   const { previous, next } = pageContext;
 
   return (
+    // @ts-ignore
     <Layout location={location} title="SAMPLE TITELE">
       <BlogPostLayout location={location}>
         <SEO

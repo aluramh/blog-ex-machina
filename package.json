@@ -34,6 +34,8 @@
     "react-dom": "^16.8.4",
     "react-helmet": "^6.0.0",
     "react-typography": "^0.16.19",
+    "styled-components": "^5.1.1",
+    "tailwindcss": "^1.7.5",
     "typography": "^0.16.19",
     "typography-theme-wordpress-2016": "^0.16.19",
     "uuid": "^7.0.0"
@@ -45,12 +47,13 @@
   "main": "n/a",
   "scripts": {
     "clean": "gatsby clean",
-    "start": "npm run develop",
-    "build": "npm run clean && gatsby build",
-    "develop": "npm run clean && gatsby develop",
+    "start": "yarn develop",
+    "build": "NODE_ENV=production yarn tailwind:build & yarn clean && gatsby build",
+    "develop": "yarn tailwind:build & yarn clean && gatsby develop",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"{gatsby-*.js,src/**/*.js}\"",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "tailwind:build": "tailwindcss build src/styles/index.css -o src/styles/tailwind.generated.css"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^3.9.0",

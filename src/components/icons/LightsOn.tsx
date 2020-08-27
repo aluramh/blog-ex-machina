@@ -1,13 +1,14 @@
-import React, { FC } from "react";
+import React, { FC, CSSProperties } from "react";
 
 interface Props {
   className?: string;
   size?: string;
   on?: boolean;
+  style?: CSSProperties;
 }
 
 const LightsOn: FC<Props> = (props) => {
-  const { size = "50px", className = "", on = true } = props;
+  const { size = "50px", className = "", on = true, style } = props;
 
   return (
     <svg
@@ -18,6 +19,8 @@ const LightsOn: FC<Props> = (props) => {
       y="0px"
       viewBox="0 0 100 125"
       width={size}
+      className={className}
+      style={style}
     >
       <g>
         <path d="M50,32.1c-10.1,0-18.3,8.2-18.3,18.3c0,6.5,3.4,12.5,9,15.8v11.1c0,2.5,2,4.5,4.5,4.5h9.7c2.5,0,4.5-2,4.5-4.5V66.1   c5.6-3.3,9-9.2,9-15.8C68.3,40.3,60.1,32.1,50,32.1z M55.3,71.7H44.7v-2h10.6V71.7z M54.8,77.7h-9.7c-0.2,0-0.5-0.2-0.5-0.5v-1.5   h10.6v1.5C55.3,77.5,55.1,77.7,54.8,77.7z M56.4,63.2l-1.1,0.6v2H44.7v-2l-1.1-0.6c-4.9-2.4-7.9-7.3-7.9-12.8   c0-7.9,6.4-14.3,14.3-14.3s14.3,6.4,14.3,14.3C64.3,55.8,61.3,60.7,56.4,63.2z" />

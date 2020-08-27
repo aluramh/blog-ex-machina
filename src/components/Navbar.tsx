@@ -1,75 +1,57 @@
-import React from "react";
+import React, { FC, useState } from "react";
 import { Link } from "gatsby";
 import LightsOnIcon from "./icons/LightsOn";
+import styled from "styled-components";
 
-interface State {
-  active: boolean;
-  navBarActiveClass: string;
-}
+interface Props {}
 
-const Navbar = class extends React.Component<{}, State> {
-  constructor(props) {
-    super(props);
-    this.state = {
-      active: false,
-      navBarActiveClass: "",
-    };
-  }
+const LightModeToggle = styled.div`
+  cursor: pointer;
+`;
 
-  toggleHamburger = () => {
-    // toggle the active boolean in the state
-    this.setState(
-      {
-        active: !this.state.active,
-      },
-      // after state has been updated,
-      () => {
-        // set the class in state for the navbar accordingly
-        this.state.active
-          ? this.setState({
-              navBarActiveClass: "is-active",
-            })
-          : this.setState({
-              navBarActiveClass: "",
-            });
-      }
-    );
-  };
+const Navbar: FC<Props> = (props) => {
+  const [lightsOn, setLightsOn] = useState(false);
 
-  render() {
-    return (
-      <nav
-        className="navbar is-transparent"
-        role="navigation"
-        aria-label="main-navigation"
-        style={{
-          position: "fixed",
-          top: 0,
-          width: "100%",
-          backgroundColor: "transparent",
-        }}
-      >
-        <div className="container" style={{ backgroundColor: "transparent" }}>
-          {/* <div className="navbar-brand">
-            <Link to="/" className="navbar-item" title="Logo">
-              My blog
-            </Link>
-          </div> */}
-          <div
-            id="navMenu"
-            className={`navbar-menu ${this.state.navBarActiveClass}`}
-          >
-            <div
-              className="navbar-end has-text-centered"
-              style={{ cursor: "pointer" }}
-            >
-              <LightsOnIcon />
+  return (
+    <nav
+      id="header"
+      role="navigation"
+      aria-label="main-navigation"
+      className={`bg-white border-b border-gray-200 fixed top-0 inset-x-0 z-100 h-16`}
+    >
+      <div className="container mx-auto">
+        <div
+          id="navMenu"
+          className="flex flex-row flex-wrap items-center justify-between items-center"
+        >
+          {/* Right section after Brand */}
+          <div className="flex flex-row">
+            {/* Brand */}
+            <div className="navbar-brand mr-3">
+              <Link to="/" className="navbar-item" title="Logo">
+                My blog
+              </Link>
+            </div>
+
+            {/* Menu items */}
+            <div className="flex flex-row flex-grow">
+              <div>Home</div>
+              <div>Blog</div>
+              <div>About</div>
             </div>
           </div>
+
+          {/* Action buttons */}
+          <LightModeToggle onClick={() => setLightsOn(!lightsOn)}>
+            <LightsOnIcon
+              on={lightsOn}
+              style={{ transform: "translateY(3px)" }}
+            />
+          </LightModeToggle>
         </div>
-      </nav>
-    );
-  }
+      </div>
+    </nav>
+  );
 };
 
 export default Navbar;
