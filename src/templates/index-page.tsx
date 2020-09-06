@@ -15,28 +15,24 @@ export const IndexPageTemplate = ({
   description,
   intro,
 }) => (
-  <div>
-    <section className="section section--gradient">
-      <div className="container">
-        <div className="columns">
-          <div className="column is-10 is-offset-1">
-            <div className="content">
-              <div className="column is-12">
-                <h1 className="has-text-weight-semibold is-size-2">
-                  My blog about whatever
-                </h1>
-                <BlogRoll />
-                <div className="column is-12 has-text-centered">
-                  <Link className="btn" to="/blog">
-                    Read more
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+  <div className="antialiased">
+    {/* Main title */}
+    <h1 className="text-3xl leading-9 font-extrabold text-gray-900 tracking-tight sm:text-4xl sm:leading-10 md:text-5xl md:leading-14 mb-6">
+      My blog about whatever
+    </h1>
+
+    {/* List of recent blogposts */}
+    <h2 className="text-xl leading-8 font-extrabold text-gray-900 tracking-tight sm:text-2xl sm:leading-10 md:text-3xl md:leading-12 mb-4">
+      Latest
+    </h2>
+    <BlogRoll />
+
+    {/* Read more (all the blogposts) */}
+    <div>
+      <Link className="btn" to="/blog">
+        Read more
+      </Link>
+    </div>
   </div>
 );
 
