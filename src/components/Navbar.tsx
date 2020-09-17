@@ -17,12 +17,9 @@ const Navbar: FC<Props> = (props) => {
   const { theme, toggleTheme } = useTheme();
   const { className = "" } = props;
 
-  useEffect(() => {
-    console.log({ NavbarTheme: theme, NBToggle: toggleTheme });
-  });
-
   const lightbulbColor = theme === "light" ? "black" : "white";
-  const themeClasses = theme === "light" ? "bg-white" : "bg-gray-800";
+  const themeClasses = theme === "light" ? "bg-gray-100" : "bg-gray-800";
+  const navbarLinkClass = theme === "light" ? "text-gray-700" : "text-gray-300";
 
   return (
     <nav
@@ -37,7 +34,7 @@ const Navbar: FC<Props> = (props) => {
           {/* Right section after Brand */}
           <div className="flex flex-row">
             {/* Brand */}
-            <div className="navbar-brand mr-3">
+            <div className={`${navbarLinkClass} navbar-brand mr-3`}>
               {window.location.pathname !== "/" && (
                 <CustomLink to="/" title="Logo">
                   Home

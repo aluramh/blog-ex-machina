@@ -2,11 +2,14 @@ import React, { FC } from "react";
 import { kebabCase } from "lodash";
 import { Helmet } from "react-helmet";
 import { graphql, Link } from "gatsby";
+import styled from "styled-components";
 import Layout from "../components/Layout";
 import Content, { HTMLContent } from "../components/Content";
 import { rhythm, scale } from "../utils/typography";
 import SEO from "../components/seo";
 import BlogPostLayout from "../components/BlogpostLayout";
+import BlogNavigation from "../components/BlogNavigation";
+import { Theme } from "../context/theme-context";
 
 interface BlogPostTemplateProps {
   content: any;
@@ -120,32 +123,8 @@ const BlogPost: FC<BlogPostProps> = ({ data, pageContext, location }) => {
           <footer>{/* <Bio /> */}</footer>
         </article>
 
-        <nav>
-          <ul
-            style={{
-              display: `flex`,
-              flexWrap: `wrap`,
-              justifyContent: `space-between`,
-              listStyle: `none`,
-              padding: 0,
-            }}
-          >
-            <li>
-              {previous && (
-                <Link to={previous.fields.slug} rel="prev">
-                  ← {previous.frontmatter.title}
-                </Link>
-              )}
-            </li>
-            <li>
-              {next && (
-                <Link to={next.fields.slug} rel="next">
-                  {next.frontmatter.title} →
-                </Link>
-              )}
-            </li>
-          </ul>
-        </nav>
+        {/* Navigation */}
+        <BlogNavigation previous={previous} next={next} />
       </BlogPostLayout>
     </Layout>
   );

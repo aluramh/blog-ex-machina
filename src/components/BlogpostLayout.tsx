@@ -1,8 +1,14 @@
 import React, { FC } from "react";
-import { scale, rhythm } from "../utils/typography";
 import { Link } from "gatsby";
+import styled from "styled-components";
+import { scale, rhythm } from "../utils/typography";
 import CustomLink from "./CustomLink";
-import { useTheme } from "../context/theme-context";
+import { Theme, useTheme } from "../context/theme-context";
+
+// Light up the headers below this section with this custom component
+const Article = styled.section<{ theme: Theme }>`
+  // color: initial;
+`;
 
 interface BlogPostLayoutProps {
   location: { pathname: string };
@@ -46,21 +52,19 @@ const BlogPostLayout: FC<BlogPostLayoutProps> = (props) => {
     header = <></>;
   }
 
-  const headerClass = theme === "dark" ? "text-gray-400" : "text-gray-800";
+  const headerTextClass = theme === "dark" ? "text-gray-500" : "text-gray-700";
+  const articleTextClass = theme === "dark" ? "text-gray-300" : "text-gray-700";
 
   return (
-    <div
-      id="layout-container"
-      className={`mx-32${className}`}
-      // style={{
-      //   maxWidth: rhythm(24),
-      //   padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
-      // }}
-    >
-      <header className={`${headerClass}`}>{header}</header>
+    <div id="layout-container" className={`mx-32${className}`}>
+      <header className={`mb-3 ${headerTextClass}`}>
+        <CustomLink to="/">My Whatever Blog</CustomLink>
+      </header>
 
       <main>
-        <article className="prose lg:prose-xl">{children}</article>
+        <Article className={`prose lg:prose-xl ${articleTextClass}`}>
+          {children}
+        </Article>
       </main>
     </div>
   );

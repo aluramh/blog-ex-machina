@@ -25,12 +25,6 @@ elkGlenTheme.overrideThemeStyles = (
     paddingLeft: rhythm(13 / 16),
     marginLeft: rhythm(0),
   },
-  // Lists
-  "ol, ul": {
-    marginTop: "0.75rem !important",
-    marginBottom: "0.75rem !important",
-    marginLeft: "0.75rem !important",
-  },
 });
 
 const typography = new Typography(elkGlenTheme);
