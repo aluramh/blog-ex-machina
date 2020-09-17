@@ -2,6 +2,7 @@ import React, { FC } from "react";
 import { scale, rhythm } from "../utils/typography";
 import { Link } from "gatsby";
 import CustomLink from "./CustomLink";
+import { useTheme } from "../context/theme-context";
 
 interface BlogPostLayoutProps {
   location: { pathname: string };
@@ -16,6 +17,7 @@ const BlogPostLayout: FC<BlogPostLayoutProps> = (props) => {
     children,
     className = "",
   } = props;
+  const { theme, toggleTheme } = useTheme();
   const rootPath = `lolazo`; //`${__PATH_PREFIX__}/`;
   let header;
 
@@ -44,17 +46,22 @@ const BlogPostLayout: FC<BlogPostLayoutProps> = (props) => {
     header = <></>;
   }
 
+  const headerClass = theme === "dark" ? "text-gray-400" : "text-gray-800";
+
   return (
     <div
       id="layout-container"
-      className={`${className}`}
+      className={`mx-32${className}`}
       // style={{
       //   maxWidth: rhythm(24),
       //   padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
       // }}
     >
-      <header>{header}</header>
-      <main>{children}</main>
+      <header className={`${headerClass}`}>{header}</header>
+
+      <main>
+        <article className="prose lg:prose-xl">{children}</article>
+      </main>
     </div>
   );
 };

@@ -13,6 +13,26 @@ import ElkGlen from "typography-theme-elk-glen";
 // const typography = new Typography(Wordpress2016);
 
 import elkGlenTheme from "typography-theme-elk-glen";
+
+elkGlenTheme.overrideThemeStyles = (
+  { adjustFontSizeTo, rhythm },
+  options,
+  styles
+) => ({
+  blockquote: {
+    ...adjustFontSizeTo("20px"),
+    fontStyle: "italic",
+    paddingLeft: rhythm(13 / 16),
+    marginLeft: rhythm(0),
+  },
+  // Lists
+  "ol, ul": {
+    marginTop: "0.75rem !important",
+    marginBottom: "0.75rem !important",
+    marginLeft: "0.75rem !important",
+  },
+});
+
 const typography = new Typography(elkGlenTheme);
 
 // Hot reload typography in development.
