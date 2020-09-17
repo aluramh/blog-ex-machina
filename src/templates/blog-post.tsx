@@ -81,7 +81,7 @@ const BlogPost: FC<BlogPostProps> = ({ data, pageContext, location }) => {
   return (
     // @ts-ignore
     <Layout location={location} title="SAMPLE TITELE">
-      <BlogPostLayout location={location}>
+      <BlogPostLayout location={location} className="">
         <SEO
           title={post.frontmatter.title}
           description={

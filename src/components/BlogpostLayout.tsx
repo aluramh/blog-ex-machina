@@ -1,20 +1,25 @@
 import React, { FC } from "react";
 import { scale, rhythm } from "../utils/typography";
 import { Link } from "gatsby";
+import CustomLink from "./CustomLink";
 
 interface BlogPostLayoutProps {
   location: { pathname: string };
   title: string;
+  className?: string;
 }
 
-const BlogPostLayout: FC<BlogPostLayoutProps> = ({
-  location,
-  title,
-  children,
-}) => {
+const BlogPostLayout: FC<BlogPostLayoutProps> = (props) => {
+  const {
+    location,
+    title = "My blog about whatever",
+    children,
+    className = "",
+  } = props;
   const rootPath = `lolazo`; //`${__PATH_PREFIX__}/`;
   let header;
 
+  // Render layout depending on the route you are on
   if (location.pathname === rootPath) {
     header = (
       <h1
@@ -24,7 +29,7 @@ const BlogPostLayout: FC<BlogPostLayoutProps> = ({
           marginTop: 0,
         }}
       >
-        <Link
+        <CustomLink
           style={{
             boxShadow: `none`,
             color: `inherit`,
@@ -32,45 +37,24 @@ const BlogPostLayout: FC<BlogPostLayoutProps> = ({
           to={`/`}
         >
           {title}
-        </Link>
+        </CustomLink>
       </h1>
     );
   } else {
-    header = (
-      <h3
-        style={{
-          fontFamily: `Montserrat, sans-serif`,
-          marginTop: 0,
-        }}
-      >
-        <Link
-          style={{
-            boxShadow: `none`,
-            color: `inherit`,
-          }}
-          to={`/`}
-        >
-          {title}
-        </Link>
-      </h3>
-    );
+    header = <></>;
   }
+
   return (
     <div
-      style={{
-        marginLeft: `auto`,
-        marginRight: `auto`,
-        maxWidth: rhythm(24),
-        padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
-      }}
+      id="layout-container"
+      className={`${className}`}
+      // style={{
+      //   maxWidth: rhythm(24),
+      //   padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
+      // }}
     >
       <header>{header}</header>
       <main>{children}</main>
-      <footer>
-        © {new Date().getFullYear()}, Built with
-        {` `}
-        <a href="https://www.gatsbyjs.org">Gatsby</a>
-      </footer>
     </div>
   );
 };

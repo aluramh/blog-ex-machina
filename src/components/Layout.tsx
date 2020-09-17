@@ -1,16 +1,27 @@
-import React, { FC } from "react";
+import React, { FC, useMemo, useEffect } from "react";
 import { Helmet } from "react-helmet";
 import Footer from "./Footer";
 import Navbar from "./Navbar";
-import "./all.sass";
 import useSiteMetadata from "./SiteMetadata";
 import { withPrefix } from "gatsby";
+import { useTheme, ThemeProvider } from "../context/theme-context";
+
+const LayoutContainer = ({ children }) => {
+  return (
+    <ThemeProvider>
+      <TemplateWrapper>{children}</TemplateWrapper>
+    </ThemeProvider>
+  );
+};
 
 const TemplateWrapper: FC = ({ children }) => {
   const { title, description } = useSiteMetadata();
+  const { theme, toggleTheme } = useTheme();
+
+  const themeClass = theme === "light" ? "bg-gray-100" : "bg-gray-800";
 
   return (
-    <div>
+    <div className={`${themeClass}`} id="overallLayout">
       <Helmet>
         <html lang="en" />
         <title>{title}</title>
@@ -52,11 +63,10 @@ const TemplateWrapper: FC = ({ children }) => {
 
       <Navbar />
 
-      <div>{children}</div>
-
+      <div className="container mx-auto px-3 pt-20">{children}</div>
       <Footer />
     </div>
   );
 };
 
-export default TemplateWrapper;
+export default LayoutContainer;
