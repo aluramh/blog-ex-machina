@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 import { Link, graphql, StaticQuery } from "gatsby";
 import CustomLink from "./CustomLink";
+import { useTheme } from "../context/theme-context";
 
 interface Props {
   data: {
@@ -18,6 +19,10 @@ interface Props {
 const BlogRoll: FC<Props> = (props) => {
   const { data } = props;
   const { edges: posts } = data.allMarkdownRemark;
+  const { theme, toggleTheme } = useTheme();
+
+  const headerTextClass = theme === "dark" ? "text-gray-400" : "text-gray-700";
+  const articleTextClass = theme === "dark" ? "text-gray-400" : "text-gray-700";
 
   return (
     <div className="columns is-multiline">
@@ -50,7 +55,7 @@ const BlogRoll: FC<Props> = (props) => {
 
                   <div className="mb-3">
                     <CustomLink
-                      className="text-2xl leading-8 font-bold tracking-tight bg-none"
+                      className={`${headerTextClass} text-2xl leading-8 font-bold tracking-tight bg-none`}
                       to={post.fields.slug}
                     >
                       {post.frontmatter.title}
@@ -59,7 +64,7 @@ const BlogRoll: FC<Props> = (props) => {
                 </div>
               </header>
 
-              <p className="prose max-w-none text-gray-500 mb-3 ">
+              <p className={`prose max-w-none text-gray-500 mb-3 ${theme}`}>
                 {post.excerpt}
               </p>
 

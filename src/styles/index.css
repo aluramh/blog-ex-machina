@@ -7,3 +7,12 @@
 body {
   zoom: 70%;
 }
+
+a {
+  background-image: none !important;
+}
+
+.prose.dark h2,
+.prose.dark h1 {
+  color: #f7fafc;
+}

@@ -18,7 +18,7 @@ const TemplateWrapper: FC = ({ children }) => {
   const { title, description } = useSiteMetadata();
   const { theme, toggleTheme } = useTheme();
 
-  const themeClass = theme === "light" ? "bg-gray-100" : "bg-gray-800";
+  const themeClass = theme === "light" ? "bg-gray-100" : "bg-gray-900";
 
   return (
     <div className={`${themeClass}`} id="overallLayout">

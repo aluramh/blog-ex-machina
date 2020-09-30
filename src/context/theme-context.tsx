@@ -1,13 +1,9 @@
-import React, {
-  createContext,
-  useContext,
-  useState,
-  useMemo,
-  Dispatch,
-  SetStateAction,
-} from "react";
+import React, { createContext, useContext, useState, useMemo } from "react";
+import { getCookie, setCookie } from "./utilities";
+const THEME = "THEME";
 
 export type Theme = "dark" | "light";
+
 type ThemeState = {
   theme: Theme;
   toggleTheme: () => void;
@@ -27,8 +23,16 @@ function useTheme() {
 }
 
 function ThemeProvider(props) {
-  const [theme, setTheme] = useState<Theme>("light");
-  const toggleTheme = () => setTheme(theme === "dark" ? "light" : "dark");
+  // Try to get the initial state from the cookies, or default to light
+  const [theme, setTheme] = useState<Theme>(() => getCookie(THEME) || "light");
+
+  const toggleTheme = () => {
+    const newValue = theme === "dark" ? "light" : "dark";
+
+    // Set in both the cookies and the State
+    setCookie(THEME, newValue);
+    setTheme(newValue);
+  };
 
   const value = useMemo(() => ({ theme, toggleTheme }), [theme]);
 

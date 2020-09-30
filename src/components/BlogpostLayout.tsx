@@ -62,7 +62,7 @@ const BlogPostLayout: FC<BlogPostLayoutProps> = (props) => {
       </header>
 
       <main>
-        <Article className={`prose lg:prose-xl ${articleTextClass}`}>
+        <Article className={`prose lg:prose-xl ${theme} ${articleTextClass}`}>
           {children}
         </Article>
       </main>

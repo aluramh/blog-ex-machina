@@ -18,8 +18,10 @@ const Navbar: FC<Props> = (props) => {
   const { className = "" } = props;
 
   const lightbulbColor = theme === "light" ? "black" : "white";
-  const themeClasses = theme === "light" ? "bg-gray-100" : "bg-gray-800";
+  const themeClasses = theme === "light" ? "bg-gray-100" : "bg-gray-900";
   const navbarLinkClass = theme === "light" ? "text-gray-700" : "text-gray-300";
+  const navbarBorder =
+    theme === "light" ? "border-gray-500" : "border-gray-700 ";
 
   return (
     <nav
@@ -27,7 +29,7 @@ const Navbar: FC<Props> = (props) => {
       role="navigation"
       aria-label="main-navigation"
       // className={`bg-white border-b border-gray-200 fixed top-0 inset-x-0 z-100 ${className}`}
-      className={`${themeClasses} border-b border-gray-200 w-full fixed mx-auto px-4 sm:px-6 xl:px-0 z-50`}
+      className={`${themeClasses} border-b ${navbarBorder} w-full fixed mx-auto px-4 sm:px-6 xl:px-0 z-50`}
     >
       <div className="container mx-auto pl-3">
         <div className="flex flex-row flex-wrap items-center justify-between items-center">
