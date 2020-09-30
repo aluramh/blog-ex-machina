@@ -1,4 +1,5 @@
-import React, { FC } from "react";
+import React, { FC, useMemo } from "react";
+import { navigate } from "@reach/router";
 import { useTheme } from "../context/theme-context";
 
 interface Props {
@@ -9,19 +10,35 @@ const Tags: FC<Props> = (props) => {
   const { tags } = props;
   const { theme } = useTheme();
 
+  // ANCHOR: - Component functions
+
   const handleTagClick = (tag: string) => {
     console.log(`Pressed the "${tag}" tag!`);
+    navigate(`/tags/${tag}`);
   };
 
-  const pillTextColor = theme === "light" ? "bg-gray-900" : "bg-gray-100";
-  const pillBgColor = theme === "light" ? "bg-teal-400" : "bg-teal-500";
+  // ANCHOR: - Dynamic classes
+
+  const pillTextColor = useMemo(
+    () => (theme === "light" ? "bg-gray-900" : "bg-gray-100"),
+    [theme]
+  );
+
+  const pillBgColor = useMemo(
+    () =>
+      theme === "light"
+        ? "hover:bg-teal-400 bg-teal-300"
+        : "hover:bg-teal-400 bg-teal-500",
+    [theme]
+  );
 
   return (
     <div className="flex flex-row">
       {tags.map((tag) => (
+        // Pill component
         <div
           key={tag}
-          className={`px-3 py-2 mr-3 rounded-lg cursor-pointer ${pillBgColor} ${pillTextColor}`}
+          className={`px-3 py-2 mr-3 rounded-full cursor-pointer ${pillBgColor} ${pillTextColor}`}
           onClick={() => handleTagClick(tag)}
         >
           {tag}
