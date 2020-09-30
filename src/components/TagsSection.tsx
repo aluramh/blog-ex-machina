@@ -38,7 +38,7 @@ const TagsSection: FC<Props> = (props) => {
         // Pill component
         <div
           key={tag}
-          className={`px-3 py-2 mr-3 rounded-full cursor-pointer ${pillBgColor} ${pillTextColor}`}
+          className={`text-sm rounded-full cursor-pointer px-3 py-2 mr-3 ${pillBgColor} ${pillTextColor}`}
           onClick={() => handleTagClick(tag)}
         >
           {tag}

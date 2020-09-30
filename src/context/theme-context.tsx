@@ -1,4 +1,10 @@
-import React, { createContext, useContext, useState, useMemo } from "react";
+import React, {
+  createContext,
+  useContext,
+  useState,
+  useMemo,
+  useEffect,
+} from "react";
 import { getCookie, setCookie } from "./utilities";
 const THEME = "THEME";
 
@@ -30,16 +36,19 @@ function ThemeProvider(props) {
   const toggleTheme = () => {
     const newValue = theme === "dark" ? "light" : "dark";
 
-    // Set in both the cookies and the State
+    // Set the value in both the document.cookies...
     setCookie(THEME, newValue);
+    // ...and the State
     setTheme(newValue);
+  };
 
+  useEffect(() => {
     // Assign the selected theme as a class to the body, for styling the body
     // background color in order to match the page style, especially when
     // overscrolling.
     // The applied tailwind classes are detailed in src/index.css.
     document.body.className = theme;
-  };
+  }, [theme]);
 
   const value = useMemo(
     () => ({
