@@ -8,11 +8,20 @@ body {
   zoom: 70%;
 }
 
-a {
-  background-image: none !important;
-}
-
 .prose.dark h2,
 .prose.dark h1 {
   color: #f7fafc;
+}
+
+.prose a {
+  background-image: none !important;
+  color: #38b2ac;
+}
+
+.prose.dark a {
+  text-shadow: none !important;
+}
+
+.prose strong {
+  color: #38b2ac;
 }
