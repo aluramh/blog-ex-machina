@@ -34,6 +34,10 @@ interface Props {
   };
 }
 
+/**
+ * This is the template used for displaying a single Tag and its related posts.
+ * @param props
+ */
 const TagRoute: FC<Props> = (props) => {
   const posts = props.data.allMarkdownRemark.edges;
   const postLinks = posts.map((post) => (

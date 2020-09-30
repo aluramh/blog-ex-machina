@@ -5,6 +5,10 @@ import { Link, graphql } from "gatsby";
 import Layout from "../../components/Layout";
 import CustomLink from "../../components/CustomLink";
 
+/**
+ * Page for displaying all of the available tags in a list and the number of posts related to that tag
+ * @param props
+ */
 const TagsPage = (props) => {
   const {
     data: {
