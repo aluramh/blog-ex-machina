@@ -4,18 +4,16 @@
 
 @tailwind utilities;
 
-body {
-  zoom: 70%;
-}
+/* Customization of the styling of tailwind's "prose" class */
 
 .prose.dark h2,
 .prose.dark h1 {
-  color: #f7fafc;
+  @apply text-gray-100;
 }
 
 .prose a {
   background-image: none !important;
-  color: #38b2ac;
+  @apply text-teal-500;
 }
 
 .prose.dark a {
@@ -23,10 +21,18 @@ body {
 }
 
 .prose strong {
-  color: #38b2ac;
+  @apply text-teal-500;
+}
+
+.prose.dark blockquote {
+  @apply text-gray-500;
 }
 
 /* Apply styles based on the class that <body /> has */
+
+body {
+  zoom: 80%;
+}
 
 body.light {
   @apply bg-gray-100;

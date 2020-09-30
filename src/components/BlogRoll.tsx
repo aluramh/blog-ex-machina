@@ -64,7 +64,7 @@ const BlogRoll: FC<Props> = (props) => {
                 </div>
               </header>
 
-              <p className={`prose max-w-none text-gray-500 mb-3 ${theme}`}>
+              <p className={`prose ${theme} max-w-none text-gray-500 mb-3`}>
                 {post.excerpt}
               </p>
 

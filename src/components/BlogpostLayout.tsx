@@ -58,11 +58,11 @@ const BlogPostLayout: FC<BlogPostLayoutProps> = (props) => {
   return (
     <div id="layout-container" className={`mx-32${className}`}>
       <header className={`mb-3 ${headerTextClass}`}>
-        <CustomLink to="/">My Whatever Blog</CustomLink>
+        <CustomLink to="/">My blog about whatever</CustomLink>
       </header>
 
       <main>
-        <Article className={`prose lg:prose-xl ${theme} ${articleTextClass}`}>
+        <Article className={`prose ${theme} lg:prose-xl ${articleTextClass}`}>
           {children}
         </Article>
       </main>
