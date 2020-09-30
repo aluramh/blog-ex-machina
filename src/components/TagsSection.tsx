@@ -6,7 +6,7 @@ interface Props {
   tags: string[];
 }
 
-const Tags: FC<Props> = (props) => {
+const TagsSection: FC<Props> = (props) => {
   const { tags } = props;
   const { theme } = useTheme();
 
@@ -20,7 +20,7 @@ const Tags: FC<Props> = (props) => {
   // ANCHOR: - Dynamic classes
 
   const pillTextColor = useMemo(
-    () => (theme === "light" ? "bg-gray-900" : "bg-gray-100"),
+    () => (theme === "light" ? "text-gray-900" : "text-gray-100"),
     [theme]
   );
 
@@ -48,4 +48,4 @@ const Tags: FC<Props> = (props) => {
   );
 };
 
-export default Tags;
+export default TagsSection;

@@ -7,6 +7,7 @@ export type Theme = "dark" | "light";
 type ThemeState = {
   theme: Theme;
   toggleTheme: () => void;
+  bodyBackgroundClass: string;
 };
 
 // @ts-ignore
@@ -32,9 +33,22 @@ function ThemeProvider(props) {
     // Set in both the cookies and the State
     setCookie(THEME, newValue);
     setTheme(newValue);
+
+    // Assign the selected theme as a class to the body, for styling the body
+    // background color in order to match the page style, especially when
+    // overscrolling.
+    // The applied tailwind classes are detailed in src/index.css.
+    document.body.className = theme;
   };
 
-  const value = useMemo(() => ({ theme, toggleTheme }), [theme]);
+  const value = useMemo(
+    () => ({
+      theme,
+      toggleTheme,
+      bodyBackgroundClass: theme === "light" ? "bg-gray-100" : "bg-gray-900",
+    }),
+    [theme]
+  );
 
   return <ThemeContext.Provider value={value} {...props} />;
 }

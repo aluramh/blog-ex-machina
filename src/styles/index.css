@@ -25,3 +25,13 @@ body {
 .prose strong {
   color: #38b2ac;
 }
+
+/* Apply styles based on the class that <body /> has */
+
+body.light {
+  @apply bg-gray-100;
+}
+
+body.dark {
+  @apply bg-gray-900;
+}

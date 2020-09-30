@@ -10,7 +10,7 @@ import SEO from "../components/seo";
 import BlogPostLayout from "../components/BlogpostLayout";
 import BlogNavigation from "../components/BlogNavigation";
 import { Theme } from "../context/theme-context";
-import Tags from "../components/Tags";
+import TagsSection from "../components/TagsSection";
 
 interface BlogPostTemplateProps {
   content: any;
@@ -125,7 +125,7 @@ const BlogPost: FC<BlogPostProps> = ({ data, pageContext, location }) => {
         </article>
 
         {/* Tags */}
-        <Tags tags={post.frontmatter.tags} />
+        <TagsSection tags={post.frontmatter.tags} />
 
         {/* Navigation */}
         <BlogNavigation previous={previous} next={next} />
