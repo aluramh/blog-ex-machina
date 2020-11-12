@@ -3,14 +3,17 @@ import React, {
   useContext,
   useState,
   useMemo,
-  Dispatch,
-  SetStateAction,
+  useEffect,
 } from "react";
+import { getCookie, setCookie } from "./utilities";
+const THEME = "THEME";
 
 export type Theme = "dark" | "light";
+
 type ThemeState = {
   theme: Theme;
   toggleTheme: () => void;
+  bodyBackgroundClass: string;
 };
 
 // @ts-ignore
@@ -27,10 +30,34 @@ function useTheme() {
 }
 
 function ThemeProvider(props) {
-  const [theme, setTheme] = useState<Theme>("light");
-  const toggleTheme = () => setTheme(theme === "dark" ? "light" : "dark");
+  // Try to get the initial state from the cookies, or default to light
+  const [theme, setTheme] = useState<Theme>(() => getCookie(THEME) || "light");
 
-  const value = useMemo(() => ({ theme, toggleTheme }), [theme]);
+  const toggleTheme = () => {
+    const newValue = theme === "dark" ? "light" : "dark";
+
+    // Set the value in both the document.cookies...
+    setCookie(THEME, newValue);
+    // ...and the State
+    setTheme(newValue);
+  };
+
+  useEffect(() => {
+    // Assign the selected theme as a class to the body, for styling the body
+    // background color in order to match the page style, especially when
+    // overscrolling.
+    // The applied tailwind classes are detailed in src/index.css.
+    document.body.className = theme;
+  }, [theme]);
+
+  const value = useMemo(
+    () => ({
+      theme,
+      toggleTheme,
+      bodyBackgroundClass: theme === "light" ? "bg-gray-100" : "bg-gray-900",
+    }),
+    [theme]
+  );
 
   return <ThemeContext.Provider value={value} {...props} />;
 }

@@ -6,6 +6,8 @@ import Layout from "../components/Layout";
 import Features from "../components/Features";
 import BlogRoll from "../components/BlogRoll";
 import CustomLink from "../components/CustomLink";
+import { useTheme } from "../context/theme-context";
+const { BLOG_TITLE } = require("../assets/constants");
 
 export const IndexPageTemplate = ({
   image,
@@ -15,42 +17,58 @@ export const IndexPageTemplate = ({
   mainpitch,
   description,
   intro,
-}) => (
-  <div className="antialiased">
-    {/* Center all the content in the middle, for readability */}
-    <div className="px-32">
-      {/* Main title */}
-      <h1 className="text-3xl leading-9 font-extrabold text-gray-900 tracking-tight sm:text-4xl sm:leading-10 md:text-5xl md:leading-14 mb-6">
-        My blog about whatever
-      </h1>
+}) => {
+  const { theme } = useTheme();
 
-      {/* List of recent blogposts */}
-      <h2 className="text-xl leading-8 font-extrabold text-gray-900 tracking-tight sm:text-2xl sm:leading-10 md:text-3xl md:leading-12 mb-4">
-        Latest
-      </h2>
-      <BlogRoll />
+  const headerTextClass = theme === "dark" ? "text-gray-200" : "text-gray-800";
+  const articleTextClass = theme === "dark" ? "text-gray-300" : "text-gray-700";
+  const moreButtonClass = theme === "dark" ? "text-gray-300" : "text-gray-700";
 
-      {/* Read more (all the blogposts) */}
-      <div>
-        <CustomLink className="btn" style={{ textShadow: "none" }} to="/blog">
-          Read more
-        </CustomLink>
+  return (
+    <div className="antialiased">
+      {/* Center all the content in the middle, for readability */}
+      <div className="px-32">
+        {/* Main title */}
+        <h1
+          className={`${headerTextClass} text-3xl leading-9 font-extrabold tracking-tight sm:text-4xl sm:leading-10 md:text-5xl md:leading-14 my-6`}
+        >
+          <span className="uppercase">{BLOG_TITLE}</span>
+        </h1>
+
+        {/* List of recent blogposts */}
+        {/* <h2
+          className={`${headerTextClass} text-xl leading-8 font-extrabold tracking-tight sm:text-2xl sm:leading-10 md:text-3xl md:leading-12 mb-4`}
+        >
+          Latest
+        </h2> */}
+        <BlogRoll />
+
+        {/* Read more (all the blogposts) */}
+        <div className="mt-3">
+          <CustomLink
+            className={`${moreButtonClass} bg-none no-underline hover:underline`}
+            style={{ textShadow: "none" }}
+            to="/blog"
+          >
+            Read more
+          </CustomLink>
+        </div>
       </div>
     </div>
-  </div>
-);
-
-IndexPageTemplate.propTypes = {
-  image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
-  title: PropTypes.string,
-  heading: PropTypes.string,
-  subheading: PropTypes.string,
-  mainpitch: PropTypes.object,
-  description: PropTypes.string,
-  intro: PropTypes.shape({
-    blurbs: PropTypes.array,
-  }),
+  );
 };
+
+// IndexPageTemplate.propTypes = {
+//   image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+//   title: PropTypes.string,
+//   heading: PropTypes.string,
+//   subheading: PropTypes.string,
+//   mainpitch: PropTypes.object,
+//   description: PropTypes.string,
+//   intro: PropTypes.shape({
+//     blurbs: PropTypes.array,
+//   }),
+// };
 
 const IndexPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark;
@@ -70,13 +88,13 @@ const IndexPage = ({ data }) => {
   );
 };
 
-IndexPage.propTypes = {
-  data: PropTypes.shape({
-    markdownRemark: PropTypes.shape({
-      frontmatter: PropTypes.object,
-    }),
-  }),
-};
+// IndexPage.propTypes = {
+//   data: PropTypes.shape({
+//     markdownRemark: PropTypes.shape({
+//       frontmatter: PropTypes.object,
+//     }),
+//   }),
+// };
 
 export default IndexPage;
 

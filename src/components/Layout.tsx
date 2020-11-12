@@ -16,12 +16,10 @@ const LayoutContainer = ({ children }) => {
 
 const TemplateWrapper: FC = ({ children }) => {
   const { title, description } = useSiteMetadata();
-  const { theme, toggleTheme } = useTheme();
-
-  const themeClass = theme === "light" ? "bg-gray-100" : "bg-gray-800";
+  const { theme, toggleTheme, bodyBackgroundClass } = useTheme();
 
   return (
-    <div className={`${themeClass}`} id="overallLayout">
+    <div className={`${bodyBackgroundClass}`} id="overallLayout">
       <Helmet>
         <html lang="en" />
         <title>{title}</title>

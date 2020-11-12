@@ -1,8 +1,10 @@
-import React, { CSSProperties, useMemo } from "react";
+import React, { CSSProperties, FC, useMemo } from "react";
 import { Link } from "gatsby";
-import { useTheme, ThemeProvider } from "../context/theme-context";
+import { useTheme } from "../context/theme-context";
 
-const CustomLink = (props) => {
+type Props = any;
+
+const CustomLink: FC<Props> = (props) => {
   const { theme } = useTheme();
 
   const customStyle = useMemo(() => {

@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { scale, rhythm } from "../utils/typography";
 import CustomLink from "./CustomLink";
 import { Theme, useTheme } from "../context/theme-context";
+const { BLOG_TITLE } = require("../assets/constants");
 
 // Light up the headers below this section with this custom component
 const Article = styled.section<{ theme: Theme }>`
@@ -17,12 +18,7 @@ interface BlogPostLayoutProps {
 }
 
 const BlogPostLayout: FC<BlogPostLayoutProps> = (props) => {
-  const {
-    location,
-    title = "My blog about whatever",
-    children,
-    className = "",
-  } = props;
+  const { location, title = BLOG_TITLE, children, className = "" } = props;
   const { theme, toggleTheme } = useTheme();
   const rootPath = `lolazo`; //`${__PATH_PREFIX__}/`;
   let header;
@@ -58,11 +54,11 @@ const BlogPostLayout: FC<BlogPostLayoutProps> = (props) => {
   return (
     <div id="layout-container" className={`mx-32${className}`}>
       <header className={`mb-3 ${headerTextClass}`}>
-        <CustomLink to="/">My Whatever Blog</CustomLink>
+        <CustomLink to="/">{BLOG_TITLE}</CustomLink>
       </header>
 
       <main>
-        <Article className={`prose lg:prose-xl ${articleTextClass}`}>
+        <Article className={`prose ${theme} lg:prose-xl ${articleTextClass}`}>
           {children}
         </Article>
       </main>
