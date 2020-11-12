@@ -44,7 +44,7 @@ export const IndexPageTemplate = ({
         <BlogRoll />
 
         {/* Read more (all the blogposts) */}
-        <div>
+        <div className="mt-3">
           <CustomLink
             className={`${moreButtonClass} bg-none no-underline hover:underline`}
             style={{ textShadow: "none" }}

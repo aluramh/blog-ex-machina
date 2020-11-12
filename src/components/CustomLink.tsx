@@ -1,6 +1,6 @@
 import React, { CSSProperties, FC, useMemo } from "react";
 import { Link } from "gatsby";
-import { useTheme, ThemeProvider } from "../context/theme-context";
+import { useTheme } from "../context/theme-context";
 
 type Props = any;
 
