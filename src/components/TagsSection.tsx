@@ -27,7 +27,7 @@ const TagsSection: FC<Props> = (props) => {
   const pillBgColor = useMemo(
     () =>
       theme === "light"
-        ? "hover:bg-teal-400 bg-teal-300"
+        ? "hover:bg-teal-400 bg-teal-200"
         : "hover:bg-teal-400 bg-teal-500",
     [theme]
   );
