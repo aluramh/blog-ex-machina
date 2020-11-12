@@ -7,6 +7,7 @@ import Features from "../components/Features";
 import BlogRoll from "../components/BlogRoll";
 import CustomLink from "../components/CustomLink";
 import { useTheme } from "../context/theme-context";
+const { BLOG_TITLE } = require("../assets/constants");
 
 export const IndexPageTemplate = ({
   image,
@@ -31,7 +32,7 @@ export const IndexPageTemplate = ({
         <h1
           className={`${headerTextClass} text-3xl leading-9 font-extrabold tracking-tight sm:text-4xl sm:leading-10 md:text-5xl md:leading-14 my-6`}
         >
-          My blog about whatever
+          <span className="uppercase">{BLOG_TITLE}</span>
         </h1>
 
         {/* List of recent blogposts */}
