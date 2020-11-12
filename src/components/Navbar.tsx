@@ -1,6 +1,7 @@
 import React, { FC, useState, useMemo, useEffect } from "react";
 import { Link } from "gatsby";
 import LightsOnIcon from "./icons/LightsOn";
+import HomeIcon from "./icons/Home";
 import styled from "styled-components";
 import CustomLink from "./CustomLink";
 import { Theme, useTheme } from "../context/theme-context";
@@ -17,7 +18,7 @@ const Navbar: FC<Props> = (props) => {
   const { theme, toggleTheme, bodyBackgroundClass } = useTheme();
   const { className = "" } = props;
 
-  const lightbulbColor = theme === "light" ? "black" : "white";
+  const iconColor = theme === "light" ? "black" : "white";
   const navbarLinkClass = theme === "light" ? "text-gray-700" : "text-gray-300";
   const navbarBorder =
     theme === "light" ? "border-gray-500" : "border-gray-700 ";
@@ -37,7 +38,11 @@ const Navbar: FC<Props> = (props) => {
             <div className={`${navbarLinkClass} navbar-brand mr-3`}>
               {window.location.pathname !== "/" && (
                 <CustomLink to="/" title="Logo">
-                  Home
+                  <HomeIcon
+                    color={iconColor}
+                    size="40px"
+                    style={{ transform: "translateY(3px)" }}
+                  />
                 </CustomLink>
               )}
             </div>
@@ -50,7 +55,7 @@ const Navbar: FC<Props> = (props) => {
             <LightsOnIcon
               on={theme === "light"}
               style={{ transform: "translateY(3px)" }}
-              color={lightbulbColor}
+              color={iconColor}
             />
           </LightModeToggle>
         </div>
