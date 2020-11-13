@@ -88,14 +88,6 @@ const IndexPage = ({ data }) => {
   );
 };
 
-// IndexPage.propTypes = {
-//   data: PropTypes.shape({
-//     markdownRemark: PropTypes.shape({
-//       frontmatter: PropTypes.object,
-//     }),
-//   }),
-// };
-
 export default IndexPage;
 
 export const pageQuery = graphql`
