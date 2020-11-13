@@ -18,7 +18,7 @@ const Navbar: FC<Props> = (props) => {
   const { theme, toggleTheme, bodyBackgroundClass } = useTheme();
   const { className = "" } = props;
 
-  const iconColor = theme === "light" ? "black" : "white";
+  const iconColor = theme === "light" ? "black" : "#cbd5e0";
   const navbarLinkClass = theme === "light" ? "text-gray-700" : "text-gray-300";
   const navbarBorder =
     theme === "light" ? "border-gray-500" : "border-gray-700 ";
@@ -36,15 +36,13 @@ const Navbar: FC<Props> = (props) => {
           <div className="flex flex-row">
             {/* Brand */}
             <div className={`${navbarLinkClass} navbar-brand mr-3`}>
-              {window.location.pathname !== "/" && (
-                <CustomLink to="/" title="Logo">
-                  <HomeIcon
-                    color={iconColor}
-                    size="40px"
-                    style={{ transform: "translateY(3px)" }}
-                  />
-                </CustomLink>
-              )}
+              <CustomLink to="/" title="Logo">
+                <HomeIcon
+                  color={iconColor}
+                  size="40px"
+                  style={{ transform: "translateY(3px)" }}
+                />
+              </CustomLink>
             </div>
 
             {/* Menu items */}

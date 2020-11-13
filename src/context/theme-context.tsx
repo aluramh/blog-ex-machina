@@ -5,7 +5,7 @@ import React, {
   useMemo,
   useEffect,
 } from "react";
-import { getCookie, setCookie } from "./utilities";
+import useLocalStorage from "../hooks/useLocalStorage";
 const THEME = "THEME";
 
 export type Theme = "dark" | "light";
@@ -31,13 +31,12 @@ function useTheme() {
 
 function ThemeProvider(props) {
   // Try to get the initial state from the cookies, or default to light
-  const [theme, setTheme] = useState<Theme>(() => getCookie(THEME) || "light");
+  // const [theme, setTheme] = useState<Theme>("light");
+  const [theme, setTheme] = useLocalStorage<Theme>(THEME, "light");
 
   const toggleTheme = () => {
     const newValue = theme === "dark" ? "light" : "dark";
 
-    // Set the value in both the document.cookies...
-    setCookie(THEME, newValue);
     // ...and the State
     setTheme(newValue);
   };
