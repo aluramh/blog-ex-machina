@@ -1,8 +1,8 @@
 import { useState } from "react";
 
-const windowGlobal = typeof window !== "undefined" ? window : null;
-
 function useLocalStorage<T>(key: string, initialValue: T): [T, (s: T) => void] {
+  const windowGlobal = typeof window !== "undefined" ? window : null;
+
   // State to store our value
   // Pass initial state function to useState so logic is only executed once
   const [storedValue, setStoredValue] = useState<T>(() => {
@@ -10,7 +10,10 @@ function useLocalStorage<T>(key: string, initialValue: T): [T, (s: T) => void] {
       // Get from local storage by key
       const item = windowGlobal?.localStorage.getItem(key);
       // Parse stored json or if none return initialValue
-      return item ? JSON.parse(item) : initialValue;
+      const storedValue = item ? JSON.parse(item) : initialValue;
+      // console.log({ storedValue });
+
+      return storedValue;
     } catch (error) {
       // If error also return initialValue
       console.log(error);

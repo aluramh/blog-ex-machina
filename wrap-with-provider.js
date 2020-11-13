@@ -8,7 +8,6 @@
 
 import React from "react";
 import { ThemeProvider } from "./src/context/theme-context";
-import "./src/styles/tailwind.generated.css";
 
 export default ({ element }) => {
   return <ThemeProvider>{element}</ThemeProvider>;
