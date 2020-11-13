@@ -22,7 +22,6 @@ const Navbar: FC<Props> = (props) => {
   const navbarLinkClass = theme === "light" ? "text-gray-700" : "text-gray-300";
   const navbarBorder =
     theme === "light" ? "border-gray-500" : "border-gray-700 ";
-  const currentlyInHome = !(window.location.pathname !== "/");
 
   return (
     <nav
