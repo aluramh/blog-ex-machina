@@ -50,7 +50,7 @@
   "scripts": {
     "clean": "gatsby clean",
     "start": "yarn develop",
-    "build": "NODE_ENV=production yarn tailwind:build & yarn clean && gatsby build",
+    "build": "yarn tailwind:build & yarn clean && gatsby build",
     "develop": "yarn tailwind:build & yarn clean && gatsby develop",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"{gatsby-*.js,src/**/*.js}\"",
     "test": "echo \"Error: no test specified\" && exit 1",
