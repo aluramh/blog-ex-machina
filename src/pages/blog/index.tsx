@@ -2,7 +2,7 @@ import React, { FC } from "react";
 
 import Layout from "../../components/Layout";
 import BlogRoll from "../../components/BlogRoll";
-import { ThemeProvider, useTheme } from "../../context/theme-context";
+import { useTheme } from "../../context/theme-context";
 
 interface Props {}
 
@@ -33,12 +33,4 @@ const BlogIndexPage: FC<Props> = () => {
   );
 };
 
-const ThemeWrappedComponent = () => {
-  return (
-    <ThemeProvider>
-      <BlogIndexPage />
-    </ThemeProvider>
-  );
-};
-
-export default ThemeWrappedComponent;
+export default BlogIndexPage;

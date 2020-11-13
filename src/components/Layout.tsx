@@ -1,22 +1,14 @@
-import React, { FC, useMemo, useEffect } from "react";
+import React, { FC } from "react";
 import { Helmet } from "react-helmet";
 import Footer from "./Footer";
 import Navbar from "./Navbar";
 import useSiteMetadata from "./SiteMetadata";
 import { withPrefix } from "gatsby";
-import { useTheme, ThemeProvider } from "../context/theme-context";
+import { useTheme } from "../context/theme-context";
 
-const LayoutContainer = ({ children }) => {
-  return (
-    <ThemeProvider>
-      <TemplateWrapper>{children}</TemplateWrapper>
-    </ThemeProvider>
-  );
-};
-
-const TemplateWrapper: FC = ({ children }) => {
+const LayoutContainer: FC = ({ children }) => {
   const { title, description } = useSiteMetadata();
-  const { theme, toggleTheme, bodyBackgroundClass } = useTheme();
+  const { bodyBackgroundClass } = useTheme();
 
   return (
     <div className={`${bodyBackgroundClass}`} id="overallLayout">
