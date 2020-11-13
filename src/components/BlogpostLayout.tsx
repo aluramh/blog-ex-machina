@@ -52,7 +52,7 @@ const BlogPostLayout: FC<BlogPostLayoutProps> = (props) => {
   const articleTextClass = theme === "dark" ? "text-gray-300" : "text-gray-700";
 
   return (
-    <div id="layout-container" className={`mx-32${className}`}>
+    <div id="layout-container" className={`mx-32 ${className}`}>
       <header className={`mb-3 ${headerTextClass}`}>
         <CustomLink to="/">{BLOG_TITLE}</CustomLink>
       </header>
