@@ -11,7 +11,9 @@ export const HTMLContent: FC<Props> = ({ content, className }) => (
 );
 
 const Content: FC<Props> = ({ content, className }) => (
-  <div className={className}>{content}</div>
+  <div id="blog-post-content" className={className}>
+    {content}
+  </div>
 );
 
 export default Content;
