@@ -13,7 +13,7 @@
 
 .prose a {
   background-image: none !important;
-  @apply text-teal-500;
+  @apply text-green-500;
 }
 
 .prose.dark a {
@@ -21,7 +21,7 @@
 }
 
 .prose strong {
-  @apply text-teal-500;
+  @apply text-green-500;
 }
 
 .prose.dark blockquote {
@@ -34,10 +34,10 @@ body {
   zoom: 80%;
 }
 
-body.light {
+html.light body {
   @apply bg-gray-100;
 }
 
-body.dark {
+html.dark body {
   @apply bg-gray-900;
 }

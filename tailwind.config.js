@@ -2,6 +2,7 @@ module.exports = {
   // corePlugins: {
   //   preflight: false,
   // },
+  darkMode: "class",
   future: {
     removeDeprecatedGapUtilities: true,
   },

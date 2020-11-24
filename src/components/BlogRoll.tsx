@@ -69,7 +69,7 @@ const BlogRoll: FC<Props> = (props) => {
               </p>
 
               <CustomLink
-                className="text-teal-500 hover:text-teal-600 bg-none"
+                className="text-green-500 hover:text-green-600 bg-none"
                 to={post.fields.slug}
               >
                 Keep Reading →
