@@ -5,8 +5,7 @@ import React, {
   useMemo,
   useEffect,
 } from "react";
-// import useLocalStorage from "../hooks/useLocalStorage";
-import useSsrLocalStorage from "../hooks/useSsrLocalStorage";
+import useLocalStorage from "../hooks/useLocalStorage";
 
 const THEME = "theme";
 
@@ -34,7 +33,7 @@ function useTheme() {
 function ThemeProvider(props) {
   // Try to get the initial state from the cookies, or default to light
   // const [theme, setTheme] = useState<Theme>("light");
-  const [theme, setTheme] = useSsrLocalStorage<Theme>(THEME, "dark");
+  const [theme, setTheme] = useLocalStorage<Theme>(THEME, "dark");
 
   const toggleTheme = () => {
     const newValue = theme === "dark" ? "light" : "dark";
