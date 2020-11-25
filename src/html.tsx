@@ -1,8 +1,10 @@
 import React from "react";
 
 const themeLoadScript: string = `
-// On page load or when changing themes, best to add inline in \`head\` to avoid FOUC
-if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+// Get the value from localStorage and parse it, since it was stored stringified
+const localStorageTheme = JSON.parse(localStorage.theme)
+// On page load or when changing themes, best to add inline in \`head\` to avoid 
+if (localStorageTheme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
   document.querySelector('html').className = 'dark'
 } else {
   document.querySelector('html').className = 'light'
