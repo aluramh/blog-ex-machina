@@ -7,7 +7,7 @@ import React, {
 } from "react";
 import useSsrLocalStorage from "../hooks/useSsrLocalStorage";
 
-const THEME = "THEME";
+const THEME = "theme";
 
 export type Theme = "dark" | "light";
 
