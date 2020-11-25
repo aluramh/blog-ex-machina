@@ -4,14 +4,12 @@ import Footer from "./Footer";
 import Navbar from "./Navbar";
 import useSiteMetadata from "./SiteMetadata";
 import { withPrefix } from "gatsby";
-import { useTheme } from "../context/theme-context";
 
 const LayoutContainer: FC = ({ children }) => {
   const { title, description } = useSiteMetadata();
-  const { bodyBackgroundClass } = useTheme();
 
   return (
-    <div className={`${bodyBackgroundClass}`} id="overallLayout">
+    <div className="bg-gray-100 dark:bg-gray-900" id="overallLayout">
       <Helmet>
         <html lang="en" />
         <title>{title}</title>

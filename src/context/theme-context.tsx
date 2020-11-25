@@ -47,14 +47,13 @@ function ThemeProvider(props) {
     // background color in order to match the page style, especially when
     // overscrolling.
     // The applied tailwind classes are detailed in src/index.css.
-    document.body.className = theme;
+    document.documentElement.className = theme;
   }, [theme]);
 
   const value = useMemo(
     () => ({
       theme,
       toggleTheme,
-      bodyBackgroundClass: theme === "light" ? "bg-gray-100" : "bg-gray-900",
     }),
     [theme]
   );

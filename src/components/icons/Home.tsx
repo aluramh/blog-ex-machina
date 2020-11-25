@@ -4,10 +4,11 @@ interface Props {
   color?: string;
   size: string;
   style?: CSSProperties;
+  className?: string;
 }
 
 const Home: FC<Props> = (props) => {
-  const { color, size, style } = props;
+  const { color, size, style, className } = props;
 
   return (
     <svg
@@ -19,6 +20,7 @@ const Home: FC<Props> = (props) => {
       height={size}
       width={size}
       style={style}
+      className={className}
     >
       <path
         fill={color}

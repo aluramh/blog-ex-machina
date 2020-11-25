@@ -7,34 +7,12 @@
  */
 
 import React, { FC, useEffect } from "react";
-import { ThemeProvider, useTheme } from "./src/context/theme-context";
-import useHasMounted from "./src/hooks/useHasMounted";
-
-/**
- * This Component is just a naive way of solving the SSR hydration issues by
- * basically not rendering on the server-side. This means everything is rendered
- * client-side and there is no speed improvement, so this needs to be fixed.
- * TODO: - Fix this hydration issue...
- * @param props
- */
-const DelayComponent: FC = (props) => {
-  const hasMounted = useHasMounted();
-
-  if (!hasMounted) {
-    return null;
-  }
-
-  return <>{props.children}</>;
-};
+import { ThemeProvider } from "./src/context/theme-context";
 
 const WrappedComponent: FC<any> = (props) => {
   const { element } = props;
 
-  return (
-    <ThemeProvider>
-      <DelayComponent>{element}</DelayComponent>
-    </ThemeProvider>
-  );
+  return <ThemeProvider>{element}</ThemeProvider>;
 };
 
 export default WrappedComponent;

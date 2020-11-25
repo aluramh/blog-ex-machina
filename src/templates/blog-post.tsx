@@ -107,11 +107,13 @@ const BlogPost: FC<BlogPostProps> = ({ data, pageContext, location }) => {
               {post.frontmatter.title}
             </h1>
             <p
-            // style={{
-            //   ...scale(-1 / 5),
-            //   display: `block`,
-            //   marginBottom: rhythm(1),
-            // }}
+              // style={{
+              //   ...scale(-1 / 5),
+              //   display: `block`,
+              //   marginBottom: rhythm(1),
+              // }}
+              className="text-gray-600 dark:text-gray-400"
+              id="dateee"
             >
               {post.frontmatter?.date}
             </p>
