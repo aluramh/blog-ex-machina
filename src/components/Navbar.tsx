@@ -15,32 +15,33 @@ const LightModeToggle = styled.div`
 `;
 
 const Navbar: FC<Props> = (props) => {
-  const { theme, toggleTheme, bodyBackgroundClass } = useTheme();
   const { className = "" } = props;
-
-  const iconColor = theme === "light" ? "black" : "#cbd5e0";
-  const navbarLinkClass = theme === "light" ? "text-gray-700" : "text-gray-300";
-  const navbarBorder =
-    theme === "light" ? "border-gray-500" : "border-gray-700 ";
+  const { theme, toggleTheme } = useTheme();
+  const iconClass = "fill-current text-gray-600 dark:text-gray-300";
 
   return (
     <nav
       id="header"
       role="navigation"
       aria-label="main-navigation"
-      className={`${bodyBackgroundClass} border-b ${navbarBorder} w-full fixed mx-auto px-4 sm:px-6 xl:px-0 z-50`}
+      className={`
+        bg-gray-100 dark:bg-gray-900
+        border-b border-gray-400 dark:border-gray-600
+        w-full fixed mx-auto px-4 sm:px-6 xl:px-0 z-50`}
     >
       <div className="container mx-auto pl-3">
         <div className="flex flex-row flex-wrap items-center justify-between">
           {/* Right section after Brand */}
           <div className="flex flex-row">
             {/* Brand */}
-            <div className={`${navbarLinkClass} navbar-brand mr-3`}>
+            <div
+              className={`text-gray-700 dark:text-gray-300 navbar-brand mr-3`}
+            >
               <CustomLink to="/" title="Logo">
                 <HomeIcon
-                  color={iconColor}
                   size="40px"
                   style={{ transform: "translateY(3px)" }}
+                  className={iconClass}
                 />
               </CustomLink>
             </div>
@@ -53,7 +54,7 @@ const Navbar: FC<Props> = (props) => {
             <LightsOnIcon
               on={theme === "light"}
               style={{ transform: "translateY(3px)" }}
-              color={iconColor}
+              className={iconClass}
             />
           </LightModeToggle>
         </div>

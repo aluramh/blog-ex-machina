@@ -18,20 +18,12 @@ export const IndexPageTemplate = ({
   description,
   intro,
 }) => {
-  const { theme } = useTheme();
-
-  const headerTextClass = theme === "dark" ? "text-gray-200" : "text-gray-800";
-  const articleTextClass = theme === "dark" ? "text-gray-300" : "text-gray-700";
-  const moreButtonClass = theme === "dark" ? "text-gray-300" : "text-gray-700";
-
   return (
     <div className="antialiased">
       {/* Center all the content in the middle, for readability */}
       <div className="px-32">
         {/* Main title */}
-        <h1
-          className={`${headerTextClass} text-3xl leading-9 font-extrabold tracking-tight sm:text-4xl sm:leading-10 md:text-5xl md:leading-14 my-6`}
-        >
+        <h1 className="text-gray-800 dark:text-gray-200 text-3xl leading-9 font-extrabold tracking-tight sm:text-4xl sm:leading-10 md:text-5xl md:leading-14 my-6">
           <span className="uppercase">{BLOG_TITLE}</span>
         </h1>
 
@@ -46,7 +38,7 @@ export const IndexPageTemplate = ({
         {/* Read more (all the blogposts) */}
         <div className="mt-3">
           <CustomLink
-            className={`${moreButtonClass} bg-none no-underline hover:underline`}
+            className="text-gray-700 dark:text-gray-300 bg-none no-underline hover:underline"
             style={{ textShadow: "none" }}
             to="/blog"
           >

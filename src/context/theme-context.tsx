@@ -54,7 +54,6 @@ function ThemeProvider(props) {
     () => ({
       theme,
       toggleTheme,
-      bodyBackgroundClass: theme === "light" ? "bg-gray-100" : "bg-gray-900",
     }),
     [theme]
   );

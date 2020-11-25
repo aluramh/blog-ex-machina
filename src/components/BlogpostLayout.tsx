@@ -19,7 +19,7 @@ interface BlogPostLayoutProps {
 
 const BlogPostLayout: FC<BlogPostLayoutProps> = (props) => {
   const { location, title = BLOG_TITLE, children, className = "" } = props;
-  const { theme, toggleTheme } = useTheme();
+  const { theme } = useTheme();
   const rootPath = `lolazo`; //`${__PATH_PREFIX__}/`;
   let header;
 
@@ -48,17 +48,16 @@ const BlogPostLayout: FC<BlogPostLayoutProps> = (props) => {
     header = <></>;
   }
 
-  const headerTextClass = theme === "dark" ? "text-gray-500" : "text-gray-700";
-  const articleTextClass = theme === "dark" ? "text-gray-300" : "text-gray-700";
-
   return (
     <div id="layout-container" className={`mx-32 ${className}`}>
-      <header className={`mb-3 ${headerTextClass}`}>
+      <header className="mb-3 dark:text-gray-500 text-gray-700">
         <CustomLink to="/">{BLOG_TITLE}</CustomLink>
       </header>
 
       <main>
-        <Article className={`prose ${theme} lg:prose-xl ${articleTextClass}`}>
+        <Article
+          className={`prose ${theme} lg:prose-xl text-gray-700 dark:text-gray-300`}
+        >
           {children}
         </Article>
       </main>

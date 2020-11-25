@@ -1,6 +1,5 @@
 import React, { FC, useMemo } from "react";
 import { navigate } from "@reach/router";
-import { useTheme } from "../context/theme-context";
 
 interface Props {
   tags: string[];
