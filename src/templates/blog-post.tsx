@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet";
 import { graphql, Link } from "gatsby";
 import styled from "styled-components";
 import Layout from "../components/Layout";
-import Content, { HTMLContent } from "../components/Content";
+import Content from "../components/Content";
 import { rhythm, scale } from "../utils/typography";
 import SEO from "../components/seo";
 import BlogPostLayout from "../components/BlogpostLayout";

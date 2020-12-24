@@ -1,8 +1,21 @@
-import React from "react";
+import React, { FC } from "react";
 import PropTypes from "prop-types";
 import { graphql } from "gatsby";
 import Layout from "../components/Layout";
-import Content, { HTMLContent } from "../components/Content";
+import Content from "../components/Content";
+
+// ANCHOR: - Component that will be used as render props
+
+interface Props {
+  content?: any;
+  className?: string;
+}
+
+const HTMLContent: FC<Props> = ({ content, className }) => (
+  <div className={className} dangerouslySetInnerHTML={{ __html: content }} />
+);
+
+// ANCHOR: - Main component
 
 export const AboutPageTemplate = (props) => {
   const { title, content, contentComponent } = props;

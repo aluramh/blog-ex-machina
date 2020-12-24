@@ -4,7 +4,9 @@ title: Why Blog Ex Machina?
 date: 2020-12-24T00:31:21.051Z
 description: And where did this blog come from?
 featuredpost: true
-featuredimage: /img/deus-ex-machina-by-praetoris01.jpg
+featuredimage: /img/ex-machina.jpg
+tags:
+  - personal
 ---
 The blog’s name comes from the latin phrase “Deus ex machina” which translates to “*god from the machine*”. This phrase is used when referring to “a plot device whereby a seemingly unsolvable problem in a story is suddenly and abruptly resolved by an unexpected and unlikely occurrence”. 
 
