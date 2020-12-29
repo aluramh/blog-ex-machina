@@ -25,9 +25,10 @@ const BlogRoll: FC<Props> = (props) => {
         posts.map(({ node: post }) => (
           <div key={post.id}>
             <article
-              className={`my-3 mb-12 ${
-                post.frontmatter.featuredpost ? "is-featured" : ""
-              }`}
+              className={`
+                my-3 mb-12 
+                ${post.frontmatter.featuredpost ? "is-featured" : ""}
+              `}
             >
               <header>
                 {/* Featured image, if there is one */}

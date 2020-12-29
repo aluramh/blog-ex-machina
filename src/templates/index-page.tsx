@@ -21,7 +21,7 @@ export const IndexPageTemplate = ({
   return (
     <div className="antialiased">
       {/* Center all the content in the middle, for readability */}
-      <div className="px-32">
+      <div className="px-4 lg:px-32">
         {/* Main title */}
         <h1 className="text-gray-800 dark:text-gray-200 text-3xl leading-9 font-extrabold tracking-tight sm:text-4xl sm:leading-10 md:text-5xl md:leading-14 my-6">
           <span className="uppercase">{BLOG_TITLE}</span>

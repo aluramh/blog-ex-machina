@@ -49,7 +49,7 @@ const BlogPostLayout: FC<BlogPostLayoutProps> = (props) => {
   }
 
   return (
-    <div id="layout-container" className={`mx-32 ${className}`}>
+    <div id="layout-container" className={`mx-4 lg:mx-32 ${className}`}>
       <header className="mb-3 dark:text-gray-500 text-gray-700">
         <CustomLink to="/">{BLOG_TITLE}</CustomLink>
       </header>
