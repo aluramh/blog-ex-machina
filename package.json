@@ -1,8 +1,8 @@
 {
-  "name": "gatsby-starter-netlify-cms",
-  "description": "Example Gatsby, and Netlify CMS project",
-  "version": "1.1.3",
-  "author": "Austin Green",
+  "name": "blog-ex-machina",
+  "description": "Personal blog out of a machine",
+  "version": "1.0.0",
+  "author": "Alex R.",
   "dependencies": {
     "@tailwindcss/typography": "^0.3.1",
     "@types/react-helmet": "^6.1.0",
