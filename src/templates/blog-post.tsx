@@ -51,9 +51,7 @@ export const BlogPostTemplate: FC<BlogPostTemplateProps> = ({
       {helmet || ''}
 
       <div className={`prose lg:prose-xl text-gray-700`}>
-        <h1 className='title is-size-2 has-text-weight-bold is-bold-light'>
-          {title}
-        </h1>
+        <h1>{title}</h1>
 
         <p>{description}</p>
 
