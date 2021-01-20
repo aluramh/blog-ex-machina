@@ -1,25 +1,40 @@
-import React, { FC } from "react";
-import { kebabCase } from "lodash";
-import { Helmet } from "react-helmet";
-import { graphql, Link } from "gatsby";
-import styled from "styled-components";
-import Layout from "../components/Layout";
-import Content from "../components/Content";
-import { rhythm, scale } from "../utils/typography";
-import SEO from "../components/seo";
-import BlogPostLayout from "../components/BlogpostLayout";
-import BlogNavigation from "../components/BlogNavigation";
-import { Theme } from "../context/theme-context";
-import TagsSection from "../components/TagsSection";
+import React, { FC } from 'react'
+import { kebabCase } from 'lodash'
+import { Helmet } from 'react-helmet'
+import { graphql, Link } from 'gatsby'
+import styled from 'styled-components'
+import Layout from '../components/Layout'
+import Content from '../components/Content'
+import { rhythm, scale } from '../utils/typography'
+import SEO from '../components/seo'
+import BlogPostLayout from '../components/BlogpostLayout'
+import BlogNavigation from '../components/BlogNavigation'
+import { Theme } from '../context/theme-context'
+import TagsSection from '../components/TagsSection'
 
 interface BlogPostTemplateProps {
-  content: any;
-  contentComponent: any;
-  description: string;
-  tags: string[];
-  title: string;
-  helmet: object;
+  content: any
+  contentComponent: any
+  description: string
+  tags: string[]
+  title: string
+  helmet: object
 }
+
+interface Post {
+  markdownRemark: {
+    id: string
+    html: string
+    frontmatter: {
+      date: string
+      title: string
+      description: string
+      tags: string[]
+    }
+  }
+}
+
+// ANCHOR: - This is the component used by the CMS for Blogpost previews
 
 export const BlogPostTemplate: FC<BlogPostTemplateProps> = ({
   content,
@@ -27,68 +42,45 @@ export const BlogPostTemplate: FC<BlogPostTemplateProps> = ({
   description,
   tags,
   title,
-  helmet,
+  helmet
 }) => {
-  const PostContent = contentComponent || Content;
+  const PostContent = contentComponent || Content
 
   return (
     <section>
-      {helmet || ""}
-      <div className="container content">
-        <div className="columns">
-          <div className="column is-10 is-offset-1">
-            <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
-              {title}
-            </h1>
+      {helmet || ''}
 
-            <p>{description}</p>
+      <div className={`prose lg:prose-xl text-gray-700`}>
+        <h1 className='title is-size-2 has-text-weight-bold is-bold-light'>
+          {title}
+        </h1>
 
-            <PostContent content={content} />
+        <p>{description}</p>
 
-            {tags && tags.length ? (
-              <div style={{ marginTop: `4rem` }}>
-                <h4>Tags</h4>
-                <ul className="taglist">
-                  {tags.map((tag) => (
-                    <li key={tag + `tag`}>
-                      <Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ) : null}
-          </div>
-        </div>
+        <PostContent content={content} />
+
+        <TagsSection tags={tags} />
       </div>
     </section>
-  );
-};
+  )
+}
+
+// ANCHOR: - Component rendered by Gatsby for each blogpost
 
 interface BlogPostProps {
-  data: {
-    markdownRemark: {
-      html: any;
-      frontmatter: {
-        description: string;
-        title: string;
-        tags: string[];
-        // ???
-        date;
-      };
-    };
-  };
-  pageContext: { next: any; previous: any };
-  location: any;
+  data: Post
+  pageContext: { next: any; previous: any }
+  location: any
 }
 
 const BlogPost: FC<BlogPostProps> = ({ data, pageContext, location }) => {
-  const { markdownRemark: post } = data;
-  const { previous, next } = pageContext;
+  const { markdownRemark: post } = data
+  const { previous, next } = pageContext
 
   return (
     // @ts-ignore
-    <Layout location={location} title="SAMPLE TITELE">
-      <BlogPostLayout location={location} className="">
+    <Layout location={location} title='SAMPLE TITELE'>
+      <BlogPostLayout location={location} className=''>
         <SEO
           title={post.frontmatter.title}
           description={
@@ -112,8 +104,8 @@ const BlogPost: FC<BlogPostProps> = ({ data, pageContext, location }) => {
               //   display: `block`,
               //   marginBottom: rhythm(1),
               // }}
-              className="text-gray-600 dark:text-gray-400"
-              id="dateee"
+              className='text-gray-600 dark:text-gray-400'
+              id='dateee'
             >
               {post.frontmatter?.date}
             </p>
@@ -136,10 +128,10 @@ const BlogPost: FC<BlogPostProps> = ({ data, pageContext, location }) => {
         <BlogNavigation previous={previous} next={next} />
       </BlogPostLayout>
     </Layout>
-  );
-};
+  )
+}
 
-export default BlogPost;
+export default BlogPost
 
 export const pageQuery = graphql`
   query BlogPostByID($id: String!) {
@@ -154,4 +146,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`;
+`
