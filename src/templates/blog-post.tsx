@@ -47,7 +47,7 @@ export const BlogPostTemplate: FC<BlogPostTemplateProps> = ({
   const PostContent = contentComponent || Content
 
   return (
-    <section>
+    <section className='py-7 px-4'>
       {helmet || ''}
 
       <div className={`prose lg:prose-xl text-gray-700`}>
