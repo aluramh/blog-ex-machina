@@ -1,22 +1,22 @@
-import React, { FC, useMemo } from "react";
-import { navigate } from "@reach/router";
+import React, { FC, useMemo } from 'react'
+import { navigate } from '@reach/router'
 
 interface Props {
-  tags: string[];
+  tags?: string[]
 }
 
-const TagsSection: FC<Props> = (props) => {
-  const { tags } = props;
+const TagsSection: FC<Props> = props => {
+  const { tags } = props
 
   // ANCHOR: - Component functions
 
   const handleTagClick = (tag: string) => {
-    navigate(`/tags/${tag}`);
-  };
+    navigate(`/tags/${tag}`)
+  }
 
   return (
-    <div className="flex flex-row">
-      {tags.map((tag) => (
+    <div className='flex flex-row'>
+      {tags?.map(tag => (
         // Pill component
         <div
           key={tag}
@@ -31,7 +31,7 @@ const TagsSection: FC<Props> = (props) => {
         </div>
       ))}
     </div>
-  );
-};
+  )
+}
 
-export default TagsSection;
+export default TagsSection
