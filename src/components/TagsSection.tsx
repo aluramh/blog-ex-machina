@@ -11,7 +11,8 @@ const TagsSection: FC<Props> = props => {
   // ANCHOR: - Component functions
 
   const handleTagClick = (tag: string) => {
-    navigate(`/tags/${tag}`)
+    // navigate(`/tags/${tag}`)
+    console.log('Not working yet!')
   }
 
   return (
