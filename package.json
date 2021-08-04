@@ -54,6 +54,7 @@
     "build:serve": "gatsby serve",
     "build:test": "yarn build && yarn build:serve",
     "develop": "yarn tailwind:build & yarn clean && gatsby develop",
+    "dev": "yarn develop",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"{gatsby-*.js,src/**/*.js}\"",
     "test": "echo \"Error: no test specified\" && exit 1",
     "type-check": "tsc --noEmit",

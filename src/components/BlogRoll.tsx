@@ -1,33 +1,33 @@
-import React, { FC } from "react";
-import { Link, graphql, StaticQuery } from "gatsby";
-import CustomLink from "./CustomLink";
+import React, { FC } from 'react'
+import { Link, graphql, StaticQuery } from 'gatsby'
+import CustomLink from './CustomLink'
 
 interface Props {
   data: {
     allMarkdownRemark: {
-      edges: any[];
-    };
-  };
-  count: number;
+      edges: any[]
+    }
+  }
+  count: number
 }
 
 /**
  *
  * @param props This component renders a long list of all the Blog posts that are available with the query
  */
-const BlogRoll: FC<Props> = (props) => {
-  const { data } = props;
-  const { edges: posts } = data.allMarkdownRemark;
+const BlogRoll: FC<Props> = props => {
+  const { data } = props
+  const { edges: posts } = data.allMarkdownRemark
 
   return (
-    <div className="">
+    <div className=''>
       {posts &&
         posts.map(({ node: post }) => (
           <div key={post.id}>
             <article
               className={`
                 my-3 mb-12 
-                ${post.frontmatter.featuredpost ? "is-featured" : ""}
+                ${post.frontmatter.featuredpost ? 'is-featured' : ''}
               `}
             >
               <header>
@@ -44,12 +44,12 @@ const BlogRoll: FC<Props> = (props) => {
                 ) : null} */}
 
                 {/* Post data */}
-                <div className="flex flex-col">
-                  <time className="text-base leading-6 font-medium text-gray-500 mb-1">
+                <div className='flex flex-col'>
+                  <time className='text-base leading-6 font-medium text-gray-500 mb-1'>
                     {post.frontmatter.date}
                   </time>
 
-                  <div className="mb-3">
+                  <div className='mb-3'>
                     <CustomLink
                       className={`dark:text-gray-400 text-gray-800 text-2xl leading-8 font-bold tracking-tight bg-none`}
                       to={post.fields.slug}
@@ -65,7 +65,7 @@ const BlogRoll: FC<Props> = (props) => {
               </p>
 
               <CustomLink
-                className="text-green-500 hover:text-green-600 bg-none"
+                className='text-green-500 hover:text-green-600 bg-none'
                 to={post.fields.slug}
               >
                 Keep Reading →
@@ -74,8 +74,8 @@ const BlogRoll: FC<Props> = (props) => {
           </div>
         ))}
     </div>
-  );
-};
+  )
+}
 
 // ANCHOR: - Query for blogposts and rendering
 
@@ -115,4 +115,4 @@ export default () => (
     // @ts-ignore
     render={(data, count) => <BlogRoll data={data} count={count} />}
   />
-);
+)
