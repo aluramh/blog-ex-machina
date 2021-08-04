@@ -19,3 +19,5 @@ I like reading King's books and have noticed patterns and motifs in his stories.
 Everything is in the same universe and it's amazing and engrossing. I cannot stop reading his books once I start and I cannot stop coming up with new theories about how Roland could save the day and how that would solve Carrie's teen problems. Everything is related and I love it. 
 
 By the way, don't watch this movie if you are not a fan of the Dark Tower otherwise you'll hate it. In fact, even if you are a fan of the series you'll most likely also be livid at what they did with the story. Anyways, it's back to 'Salem's Lot for me and I'll let you know how it's related to the Dark Tower.
+
+![Do not watch this](/img/a83e0321303e4a98c714a4929ff6c56e.jpeg "no, but I'm serious")
