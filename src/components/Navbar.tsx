@@ -28,8 +28,8 @@ const Navbar: FC<Props> = props => {
         border-b border-gray-400 dark:border-gray-600
         w-full fixed mx-auto px-4 sm:px-6 xl:px-0 z-50`}
     >
-      <div className='container mx-auto pl-3'>
-        <div className='flex flex-row flex-wrap items-center justify-between'>
+      <div className='container mx-auto px-3'>
+        <div className='px-4 lg:px-32 flex flex-row flex-wrap items-center justify-between'>
           {/* Right section after Brand */}
           <div className='flex flex-row'>
             {/* Brand */}
@@ -48,13 +48,15 @@ const Navbar: FC<Props> = props => {
                 />
               </a>
 
-              <Link
-                to='/'
-                className='bg-none tracking-wide ml-3'
-                style={{ lineHeight: '40px' }}
-              >
-                Blog
-              </Link>
+              <div aria-current={'page'}>
+                <Link
+                  to='/'
+                  className='bg-none tracking-wide ml-4 dark:hover:text-gray-100 transition-colors'
+                  style={{ lineHeight: '40px', textShadow: 'none' }}
+                >
+                  Blog
+                </Link>
+              </div>
             </div>
 
             {/* Menu items */}
