@@ -1,58 +1,58 @@
-import React, { FC, useState, useMemo, useEffect } from 'react'
-import { Link } from 'gatsby'
-import LightsOnIcon from './icons/LightsOn'
-import HomeIcon from './icons/Home'
-import styled from 'styled-components'
-import a from './CustomLink'
-import { Theme, useTheme } from '../context/theme-context'
+import React, { FC, useState, useMemo, useEffect } from "react";
+import { Link } from "gatsby";
+import LightsOnIcon from "./icons/LightsOn";
+import HomeIcon from "./icons/Home";
+import styled from "styled-components";
+import a from "./CustomLink";
+import { Theme, useTheme } from "../context/theme-context";
 
 interface Props {
-  className?: string
+  className?: string;
 }
 
 const LightModeToggle = styled.div`
   cursor: pointer;
-`
+`;
 
-const Navbar: FC<Props> = props => {
-  const { className = '' } = props
-  const { theme, toggleTheme } = useTheme()
+const Navbar: FC<Props> = (props) => {
+  const { className = "" } = props;
+  const { theme, toggleTheme } = useTheme();
 
   return (
     <nav
-      id='header'
-      role='navigation'
-      aria-label='main-navigation'
+      id="header"
+      role="navigation"
+      aria-label="main-navigation"
       className={`
         bg-gray-100 dark:bg-gray-900
         border-b border-gray-400 dark:border-gray-600
         w-full fixed mx-auto px-4 sm:px-6 xl:px-0 z-50`}
     >
-      <div className='container mx-auto px-3'>
-        <div className='px-4 lg:px-32 flex flex-row flex-wrap items-center justify-between'>
+      <div className="container mx-auto px-3">
+        <div className="px-4 lg:px-32 flex flex-row flex-wrap items-center justify-between">
           {/* Right section after Brand */}
-          <div className='flex flex-row'>
+          <div className="flex flex-row">
             {/* Brand */}
             <div
               className={`text-gray-700 dark:text-gray-300 navbar-brand mr-3 flex content-center`}
             >
               <a
-                href='https://alex-ramirez.vercel.app'
-                title='Logo'
-                className='bg-none'
+                href="https://www.alexram.dev"
+                title="Logo"
+                className="bg-none"
               >
                 <HomeIcon
-                  size='40px'
-                  style={{ transform: 'translateY(3px)' }}
-                  className='fill-current text-gray-600 dark:text-gray-300'
+                  size="40px"
+                  style={{ transform: "translateY(3px)" }}
+                  className="fill-current text-gray-600 dark:text-gray-300"
                 />
               </a>
 
-              <div aria-current={'page'}>
+              <div aria-current={"page"}>
                 <Link
-                  to='/'
-                  className='bg-none tracking-wide ml-4 dark:hover:text-gray-100 transition-colors'
-                  style={{ lineHeight: '40px', textShadow: 'none' }}
+                  to="/"
+                  className="bg-none tracking-wide ml-4 dark:hover:text-gray-100 transition-colors"
+                  style={{ lineHeight: "40px", textShadow: "none" }}
                 >
                   Blog
                 </Link>
@@ -65,15 +65,15 @@ const Navbar: FC<Props> = props => {
           {/* Action buttons */}
           <LightModeToggle onClick={() => toggleTheme()}>
             <LightsOnIcon
-              on={theme === 'light'}
-              style={{ transform: 'translateY(3px)' }}
-              className={'fill-current text-gray-600 dark:text-gray-300'}
+              on={theme === "light"}
+              style={{ transform: "translateY(3px)" }}
+              className={"fill-current text-gray-600 dark:text-gray-300"}
             />
           </LightModeToggle>
         </div>
       </div>
     </nav>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;
